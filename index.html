@@ -3,48 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corpo Humano</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Quiz Pokémon</title>
 </head>
 <body>
     <header>
-        <h1>Corpo Humano</h1>
-        <div id="theme-toggle" onclick="toggleTheme()">
-            <span id="theme-icon">🌙</span>
-            <span id="theme-text">Noturno</span>
-        </div>
+        <h1>Quiz Pokémon</h1>
+        <p>Teste seus conhecimentos sobre Pokémon!</p>
+        <button id="theme-toggle">Mudar Tema</button>
     </header>
-    <main>
-        <div class="container">
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 1</div>
-                <div class="back">Resposta 1</div>
+    <div class="container">
+        <div class="question" id="question"></div>
+        <div class="flashcard" id="flashcard">
+            <div class="front">
+                <div class="symbol">❓</div> <!-- Símbolo de interrogação -->
             </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 2</div>
-                <div class="back">Resposta 2</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 3</div>
-                <div class="back">Resposta 3</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 4</div>
-                <div class="back">Resposta 4</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 5</div>
-                <div class="back">Resposta 5</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 6</div>
-                <div class="back">Resposta 6</div>
+            <div class="back">
+                <img src="" alt="Pokémon" class="pokemon-img" id="pokemon-image">
+                <div class="answer" id="answer"></div>
             </div>
         </div>
-    </main>
+        <div class="navigation">
+            <button id="prev">Anterior</button>
+            <button id="flip">Virar Flashcard</button>
+            <button id="next">Próximo</button>
+        </div>
+        <div id="feedback"></div>
+        <div class="counter" id="counter"></div> <!-- Contador de perguntas -->
+    </div>
     <footer>
-        <p>Feito por Gabriel H. N°19</p>
+        <p>&copy; 2024 Pokémon Quiz By: Nicolas André e Allan José 2 ano B</p>
     </footer>
     <script src="script.js"></script>
 </body>
