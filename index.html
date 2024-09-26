@@ -3,53 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionário Interativo</title>
+    <title>QUIZ</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Questionário Interativo</h1>
+        <h1>QUIZ</h1>
+        <div id="theme-toggle" onclick="toggleTheme()">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-text">Noturno</span>
+        </div>
+        <div class="menu-hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+        <nav id="menu">
+            <h2>QUIZES</h2>
+            <ul>
+                <li><a href="#corpo-humano">Corpo Humano</a></li>
+                <li><a href="#geral">Geral</a></li>
+                <li><a href="#historia">História</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 1</div>
-                <div class="back">Resposta 1</div>
+        <section id="home">
+            <h2>Bem-vindo ao nosso site de quizzes!</h2>
+            <div class="button-container">
+                <div class="quiz-button" onclick="navigateTo('corpo-humano')">
+                    <img src="corpo-humano.jpg" alt="Corpo Humano">
+                    <p>Corpo Humano</p>
+                </div>
+                <div class="quiz-button" onclick="navigateTo('geral')">
+                    <img src="geral.jpg" alt="Geral">
+                    <p>Geral</p>
+                </div>
+                <div class="quiz-button" onclick="navigateTo('historia')">
+                    <img src="historia.jpg" alt="História">
+                    <p>História</p>
+                </div>
             </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 2</div>
-                <div class="back">Resposta 2</div>
+        </section>
+        <section id="corpo-humano" class="quiz-section">
+            <h2>Quiz de Corpo Humano</h2>
+            <div class="container">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 1</div>
+                    <div class="back">Resposta 1</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 2</div>
+                    <div class="back">Resposta 2</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 3</div>
+                    <div class="back">Resposta 3</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 4</div>
+                    <div class="back">Resposta 4</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 5</div>
+                    <div class="back">Resposta 5</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 6</div>
+                    <div class="back">Resposta 6</div>
+                </div>
             </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 3</div>
-                <div class="back">Resposta 3</div>
+        </section>
+        <section id="geral" class="quiz-section">
+            <h2>Quiz de Conhecimentos Gerais</h2>
+            <div class="container">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 1</div>
+                    <div class="back">Resposta 1</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 2</div>
+                    <div class="back">Resposta 2</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 3</div>
+                    <div class="back">Resposta 3</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 4</div>
+                    <div class="back">Resposta 4</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 5</div>
+                    <div class="back">Resposta 5</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 6</div>
+                    <div class="back">Resposta 6</div>
+                </div>
             </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 4</div>
-                <div class="back">Resposta 4</div>
+        </section>
+        <section id="historia" class="quiz-section">
+            <h2>Quiz de História</h2>
+            <div class="container">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 1</div>
+                    <div class="back">Resposta 1</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 2</div>
+                    <div class="back">Resposta 2</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 3</div>
+                    <div class="back">Resposta 3</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 4</div>
+                    <div class="back">Resposta 4</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 5</div>
+                    <div class="back">Resposta 5</div>
+                </div>
+                <div class="card" onclick="flipCard(this)">
+                    <div class="front">Pergunta 6</div>
+                    <div class="back">Resposta 6</div>
+                </div>
             </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 5</div>
-                <div class="back">Resposta 5</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 6</div>
-                <div class="back">Resposta 6</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 7</div>
-                <div class="back">Resposta 7</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 8</div>
-                <div class="back">Resposta 8</div>
-            </div>
-            <div class="card" onclick="flipCard(this)">
-                <div class="front">Pergunta 9</div>
-                <div class="back">Resposta 9</div>
-            </div>
-        </div>
+        </section>
     </main>
+    <footer>
+        <p>Feito por Gabriel H. N°19</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
