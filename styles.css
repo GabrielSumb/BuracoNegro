@@ -3,15 +3,11 @@
 
 /* Variáveis de Cores */
 :root {
-    /* Cores do Tema Escuro */
     --color-background-dark: #2C2C54; /* Roxo Escuro */
     --color-primary-dark: #1F1F1F;   /* Preto Suave */
     --color-text-dark: #E0E0E0;      /* Cinza Claro */
     --color-accent-dark: #6200EE;    /* Roxo Vibrante */
     --color-hover-dark: #3700B3;     /* Roxo Mais Escuro */
-    --color-feedback: #FF5722;       /* Laranja */
-
-    /* Cores do Tema Claro */
     --color-background-light: #FFFFFF; /* Branco */
     --color-primary-light: #FFD700;    /* Dourado */
     --color-text-light: #333333;       /* Cinza Escuro */
@@ -44,23 +40,22 @@ body {
 /* Header */
 header {
     padding: 20px;
-    background-color: rgba(31, 31, 31, 0.8); /* Fundo Semi-transparente */
+    background-color: rgba(31, 31, 31, 0.8);
     border-bottom: 5px solid #333333;
     position: sticky;
     top: 0;
     z-index: 1000;
+    text-align: center;
 }
 
 h1 {
     margin: 0;
     font-size: 2.5em;
-    color: var(--color-text-dark);
 }
 
 p {
     margin: 10px 0 20px 0;
     font-size: 1.1em;
-    color: var(--color-text-dark);
 }
 
 #theme-toggle {
@@ -86,22 +81,22 @@ main.container {
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
-    background: rgba(0, 0, 0, 0.2); /* Fundo semi-transparente */
+    background: rgba(0, 0, 0, 0.2);
 }
 
 /* Flashcard */
 .flashcard {
-    width: 500px; /* Aumentado de 350px para 500px */
-    height: 300px; /* Aumentado de 200px para 300px */
+    width: 500px;
+    height: 300px;
     perspective: 1000px;
     position: relative;
-    margin-bottom: 40px; /* Aumentado de 30px para 40px */
+    margin-bottom: 40px;
 }
 
 .front, .back {
     width: 100%;
     height: 100%;
-    background-color: rgba(31, 31, 31, 0.9); /* Fundo Semi-transparente */
+    background-color: rgba(31, 31, 31, 0.9);
     color: var(--color-text-dark);
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -126,32 +121,30 @@ main.container {
 
 .flashcard.flipped .front {
     transform: rotateY(180deg);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 .flashcard.flipped .back {
     transform: rotateY(0deg);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 .question, .answer {
-    font-size: 1.5em; /* Aumentado de 1.2em para 1.5em */
-    padding: 0 20px; /* Aumentado de 10px para 20px */
+    font-size: 1.5em;
+    padding: 0 20px;
     text-align: center;
 }
 
 /* Navegação entre Flashcards */
 .navigation {
     display: flex;
-    gap: 20px; /* Aumentado de 15px para 20px */
-    width: 100%; /* Preenche quase todo o site */
-    max-width: 600px; /* Define um máximo para evitar excesso em telas muito largas */
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .navigation button {
-    flex: 1; /* Os botões irão crescer igualmente para preencher o espaço disponível */
-    padding: 15px 0; /* Aumentado de 10px para 15px */
-    font-size: 1.2em; /* Aumentado de 1em para 1.2em */
+    flex: 1;
+    padding: 15px 0;
+    font-size: 1.2em;
     background-color: var(--color-accent-dark);
     border: none;
     border-radius: 5px;
@@ -168,21 +161,19 @@ main.container {
 /* Contador de Flashcards */
 .counter {
     margin-top: 20px;
-    font-size: 1.2em; /* Aumentado de 1em para 1.2em */
-    color: var(--color-text-dark);
+    font-size: 1.2em;
 }
 
 /* Rodapé */
 footer {
     padding: 20px;
-    background-color: rgba(31, 31, 31, 0.8); /* Fundo Semi-transparente */
+    background-color: rgba(31, 31, 31, 0.8);
     color: var(--color-text-dark);
     text-align: center;
     position: sticky;
     bottom: 0;
     width: 100%;
     font-size: 1em;
-    transition: background-color 0.5s, color 0.5s;
 }
 
 /* Tema Secundário Claro */
@@ -192,7 +183,7 @@ body.light-mode {
 }
 
 body.light-mode header {
-    background-color: rgba(255, 215, 0, 0.8); /* Fundo Semi-transparente Dourado */
+    background-color: rgba(255, 215, 0, 0.8);
     border-bottom: 5px solid #CCCCCC;
 }
 
@@ -211,16 +202,7 @@ body.light-mode #theme-toggle:hover {
 }
 
 body.light-mode .front, body.light-mode .back {
-    background-color: rgba(255, 215, 0, 0.8); /* Fundo Semi-transparente Dourado */
-    color: var(--color-text-light);
-}
-
-body.light-mode .flashcard.flipped .front, 
-body.light-mode .flashcard.flipped .back {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .question, body.light-mode .answer {
+    background-color: rgba(255, 215, 0, 0.8);
     color: var(--color-text-light);
 }
 
@@ -231,11 +213,6 @@ body.light-mode .navigation button {
 
 body.light-mode .navigation button:hover {
     background-color: var(--color-hover-light);
-}
-
-body.light-mode footer {
-    background-color: rgba(255, 215, 0, 0.8); /* Fundo Semi-transparente Dourado */
-    color: var(--color-text-light);
 }
 
 /* Responsividade */
@@ -251,12 +228,10 @@ body.light-mode footer {
 
     .question, .answer {
         font-size: 1.3em;
-        padding: 0 15px;
     }
 
     .navigation button {
         font-size: 1em;
-        padding: 12px 0;
     }
 
     .counter {
@@ -276,12 +251,10 @@ body.light-mode footer {
 
     .question, .answer {
         font-size: 1.1em;
-        padding: 0 10px;
     }
 
     .navigation button {
         font-size: 0.9em;
-        padding: 10px 0;
     }
 
     h1 {
@@ -291,4 +264,4 @@ body.light-mode footer {
     footer {
         font-size: 0.8em;
     }
-    }
+}
