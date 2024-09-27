@@ -1,241 +1,143 @@
-/* Importação da Fonte */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* Variáveis de Cores */
-:root {
-    --color-background-dark: #121212;
-    --color-background-light: #FFFFFF;
-    --color-primary-dark: #1F1F1F;
-    --color-primary-light: #F0F0F0;
-    --color-text-dark: #E0E0E0;
-    --color-text-light: #333333;
-    --color-accent-dark: #6200EE;
-    --color-accent-light: #BB86FC;
-    --color-hover-dark: #3700B3;
-    --color-hover-light: #9A67EA;
-    --color-feedback: #FF5722;
-}
-
-/* Estilos Globais */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    background-color: var(--color-background-dark);
-    color: var(--color-text-dark);
-    text-align: center;
-    transition: background-color 0.5s, color 0.5s;
-}
-
-header {
-    padding: 20px;
-    background-color: var(--color-primary-dark);
-    border-bottom: 5px solid #333333;
-}
-
-h1 {
-    margin: 0;
-    font-size: 2.5em;
-    color: var(--color-text-dark);
-}
-
-p {
-    margin: 10px 0 20px 0;
-    font-size: 1.1em;
-    color: var(--color-text-dark);
-}
-
-#theme-toggle {
-    background: none;
-    border: none;
-    color: var(--color-text-dark);
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-#theme-toggle:hover {
-    color: var(--color-accent-dark);
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-}
-
-.flashcard {
-    width: 350px;
-    height: 200px;
-    perspective: 1000px;
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.front, .back {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-primary-dark);
-    color: var(--color-text-dark);
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    transition: transform 0.6s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.front {
-    transform: rotateY(0deg);
-}
-
-.back {
-    transform: rotateY(180deg);
-    background-color: var(--color-primary-dark);
-}
-
-.flashcard.flipped .front {
-    transform: rotateY(180deg);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-}
-
-.flashcard.flipped .back {
-    transform: rotateY(0deg);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-}
-
-.symbol {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.question, .answer {
-    font-size: 1.2em;
-    padding: 0 10px;
-}
-
-.navigation {
-    display: flex;
-    gap: 15px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: var(--color-accent-dark);
-    border: none;
-    border-radius: 5px;
-    color: #FFFFFF;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background-color: var(--color-hover-dark);
-    transform: scale(1.05);
-}
-
-#feedback {
-    margin-top: 10px;
-    font-weight: bold;
-    color: var(--color-feedback);
-}
-
-.counter {
-    margin-top: 20px;
-    font-size: 1em;
-    color: var(--color-text-dark);
-}
-
-/* Rodapé */
-footer {
-    margin-top: 50px;
-    padding: 15px 20px;
-    background-color: var(--color-primary-dark);
-    color: var(--color-text-dark);
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    font-size: 0.9em;
-    transition: background-color 0.5s, color 0.5s;
-}
-
-/* Tema Secundário Claro */
-body.light-mode {
-    background-color: var(--color-background-light);
-    color: var(--color-text-light);
-}
-
-body.light-mode header {
-    background-color: var(--color-primary-light);
-    border-bottom: 5px solid #CCCCCC;
-}
-
-body.light-mode h1, body.light-mode p {
-    color: var(--color-text-light);
-}
-
-body.light-mode #theme-toggle {
-    color: var(--color-text-light);
-}
-
-body.light-mode #theme-toggle:hover {
-    color: var(--color-accent-light);
-}
-
-body.light-mode .front, body.light-mode .back {
-    background-color: var(--color-primary-light);
-    color: var(--color-text-light);
-}
-
-body.light-mode .back {
-    background-color: var(--color-primary-light);
-}
-
-body.light-mode .flashcard.flipped .front, 
-body.light-mode .flashcard.flipped .back {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .symbol {
-    color: var(--color-text-light);
-}
-
-body.light-mode button {
-    background-color: var(--color-accent-light);
-    color: #000000;
-}
-
-body.light-mode button:hover {
-    background-color: var(--color-hover-light);
-}
-
-body.light-mode footer {
-    background-color: var(--color-primary-light);
-    color: var(--color-text-light);
-}
-
-@media (max-width: 500px) {
-    .flashcard {
-        width: 90%;
-        height: 180px;
+const flashcards = [
+    {
+        question: "Qual é o maior órgão do corpo humano?",
+        answer: "A pele é o maior órgão do corpo humano."
+    },
+    {
+        question: "Quantos ossos possui o esqueleto humano adulto?",
+        answer: "O esqueleto humano adulto possui 206 ossos."
+    },
+    {
+        question: "Qual é a função dos glóbulos vermelhos no sangue?",
+        answer: "Os glóbulos vermelhos transportam oxigênio dos pulmões para o resto do corpo."
+    },
+    {
+        question: "Qual é o órgão responsável pela filtração do sangue?",
+        answer: "Os rins são responsáveis pela filtração do sangue."
+    },
+    {
+        question: "Qual parte do cérebro é responsável pelo equilíbrio e coordenação?",
+        answer: "O cerebelo é responsável pelo equilíbrio e coordenação."
+    },
+    {
+        question: "Quantos litros de sangue o coração bombeia aproximadamente por dia?",
+        answer: "O coração bombeia cerca de 7.570 litros de sangue por dia."
+    },
+    {
+        question: "Qual é a molécula responsável pelo transporte de oxigênio no sangue?",
+        answer: "A hemoglobina é a molécula responsável pelo transporte de oxigênio no sangue."
+    },
+    {
+        question: "Qual é a principal função do fígado?",
+        answer: "O fígado desintoxica o sangue, produz bile e armazena glicose."
+    },
+    {
+        question: "Quantos dentes o adulto normalmente possui?",
+        answer: "Um adulto normalmente possui 32 dentes."
+    },
+    {
+        question: "Qual é a maior glândula do corpo humano?",
+        answer: "O fígado é a maior glândula do corpo humano."
     }
+];
 
-    .question, .answer {
-        font-size: 1em;
-    }
+let currentFlashcardIndex = 0;
 
-    button {
-        padding: 8px 16px;
-        font-size: 0.9em;
-    }
+// Função para exibir o flashcard
+function showFlashcard(index) {
+    const flashcard = flashcards[index];
+    const questionElement = document.getElementById('question');
+    const answerElement = document.getElementById('answer');
+    const flashcardElement = document.getElementById('flashcard');
 
-    h1 {
-        font-size: 2em;
+    // Verifica se os elementos existem
+    if (questionElement && answerElement && flashcardElement) {
+        questionElement.textContent = flashcard.question;
+        answerElement.textContent = ""; // Limpa a resposta ao mostrar a nova pergunta
+
+        // Atualiza o contador
+        const counterElement = document.getElementById('counter');
+        if (counterElement) {
+            counterElement.textContent = `Flashcard ${index + 1} de ${flashcards.length}`;
+        }
+
+        // Rotaciona o card de volta
+        flashcardElement.classList.remove('flipped');
+    } else {
+        console.error("Elementos necessários não encontrados no DOM.");
     }
 }
+
+// Navegação entre os flashcards
+document.getElementById('prev').addEventListener('click', () => {
+    currentFlashcardIndex = (currentFlashcardIndex > 0) ? currentFlashcardIndex - 1 : flashcards.length - 1;
+    showFlashcard(currentFlashcardIndex);
+});
+
+document.getElementById('next').addEventListener('click', () => {
+    currentFlashcardIndex = (currentFlashcardIndex < flashcards.length - 1) ? currentFlashcardIndex + 1 : 0;
+    showFlashcard(currentFlashcardIndex);
+});
+
+// Função para mudar o tema
+function toggleTheme() {
+    const body = document.body;
+    const themeToggleButton = document.getElementById('theme-toggle');
+
+    if (body && themeToggleButton) {
+        body.classList.toggle('light-mode');
+        
+        if (body.classList.contains('light-mode')) {
+            themeToggleButton.textContent = "☀️ Mudar Tema";
+            localStorage.setItem('theme', 'light');
+        } else {
+            themeToggleButton.textContent = "🌙 Mudar Tema";
+            localStorage.setItem('theme', 'dark');
+        }
+    } else {
+        console.error("Elementos necessários para mudar o tema não encontrados no DOM.");
+    }
+}
+
+// Evento para o botão de mudança de tema
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+// Evento para virar o flashcard
+document.getElementById('flip').addEventListener('click', () => {
+    const flashcard = document.getElementById('flashcard');
+    const answerElement = document.getElementById('answer');
+
+    if (flashcard && answerElement) {
+        flashcard.classList.toggle('flipped');
+
+        const flashcardData = flashcards[currentFlashcardIndex];
+        if (flashcard.classList.contains('flipped')) {
+            answerElement.textContent = flashcardData.answer;
+        } else {
+            answerElement.textContent = "";
+        }
+    } else {
+        console.error("Elementos necessários para virar o flashcard não encontrados no DOM.");
+    }
+});
+
+// Inicializa o primeiro flashcard e aplica a preferência de tema
+document.addEventListener('DOMContentLoaded', () => {
+    showFlashcard(currentFlashcardIndex);
+
+    // Aplica a preferência de tema armazenada
+    const savedTheme = localStorage.getItem('theme');
+    const body = document.body;
+    const themeToggleButton = document.getElementById('theme-toggle');
+
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        if (themeToggleButton) {
+            themeToggleButton.textContent = "☀️ Mudar Tema";
+        }
+    } else {
+        if (themeToggleButton) {
+            themeToggleButton.textContent = "🌙 Mudar Tema";
+        }
+    }
+});
