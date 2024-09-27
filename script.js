@@ -86,7 +86,7 @@ function toggleTheme() {
 
     if (body && themeToggleButton) {
         body.classList.toggle('light-mode');
-        
+
         if (body.classList.contains('light-mode')) {
             themeToggleButton.textContent = "☀️ Mudar Tema";
             localStorage.setItem('theme', 'light');
