@@ -96,7 +96,6 @@ p {
 
 .back {
     transform: rotateY(180deg);
-    background-color: var(--color-primary-dark);
 }
 
 .flashcard.flipped .front {
@@ -107,11 +106,6 @@ p {
 .flashcard.flipped .back {
     transform: rotateY(0deg);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-}
-
-.symbol {
-    font-size: 2em;
-    margin-bottom: 10px;
 }
 
 .question, .answer {
@@ -202,10 +196,6 @@ body.light-mode .flashcard.flipped .back {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-body.light-mode .symbol {
-    color: var(--color-text-light);
-}
-
 body.light-mode button {
     background-color: var(--color-accent-light);
     color: #000000;
@@ -238,4 +228,5 @@ body.light-mode footer {
     h1 {
         font-size: 2em;
     }
+        }
   
