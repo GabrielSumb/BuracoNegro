@@ -3,33 +3,52 @@
 
 /* Variáveis de Cores */
 :root {
-    --color-background-dark: #121212;
-    --color-background-light: #FFFFFF;
-    --color-primary-dark: #1F1F1F;
-    --color-primary-light: #F0F0F0;
-    --color-text-dark: #E0E0E0;
-    --color-text-light: #333333;
-    --color-accent-dark: #6200EE;
-    --color-accent-light: #BB86FC;
-    --color-hover-dark: #3700B3;
-    --color-hover-light: #9A67EA;
-    --color-feedback: #FF5722;
+    /* Cores do Tema Escuro */
+    --color-background-dark: #2C2C54; /* Roxo Escuro */
+    --color-primary-dark: #1F1F1F;   /* Preto Suave */
+    --color-text-dark: #E0E0E0;      /* Cinza Claro */
+    --color-accent-dark: #6200EE;    /* Roxo Vibrante */
+    --color-hover-dark: #3700B3;     /* Roxo Mais Escuro */
+    --color-feedback: #FF5722;       /* Laranja */
+
+    /* Cores do Tema Claro */
+    --color-background-light: #FFFFFF; /* Branco */
+    --color-primary-light: #FFD700;    /* Dourado */
+    --color-text-light: #333333;       /* Cinza Escuro */
+    --color-accent-light: #FFA500;     /* Laranja */
+    --color-hover-light: #FF8C00;      /* Laranja Escuro */
+}
+
+/* Reset de Margens e Padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Wrapper Flexível para Layout Flexbox */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Estilos Globais */
 body {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
-    background-color: var(--color-background-dark);
+    background: linear-gradient(to bottom right, var(--color-background-dark), var(--color-primary-dark));
     color: var(--color-text-dark);
-    text-align: center;
-    transition: background-color 0.5s, color 0.5s;
+    transition: background 0.5s, color 0.5s;
 }
 
+/* Header */
 header {
     padding: 20px;
-    background-color: var(--color-primary-dark);
+    background-color: rgba(31, 31, 31, 0.8); /* Fundo Semi-transparente */
     border-bottom: 5px solid #333333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 h1 {
@@ -46,36 +65,43 @@ p {
 
 #theme-toggle {
     background: none;
-    border: none;
+    border: 2px solid var(--color-accent-dark);
+    border-radius: 5px;
+    padding: 10px 15px;
     color: var(--color-text-dark);
     font-size: 1.2em;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #theme-toggle:hover {
-    color: var(--color-accent-dark);
+    background-color: var(--color-accent-dark);
+    color: #FFFFFF;
 }
 
-.container {
+/* Main Container */
+main.container {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.2); /* Fundo semi-transparente */
 }
 
+/* Flashcard */
 .flashcard {
-    width: 350px;
-    height: 200px;
+    width: 500px; /* Aumentado de 350px para 500px */
+    height: 300px; /* Aumentado de 200px para 300px */
     perspective: 1000px;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Aumentado de 30px para 40px */
 }
 
 .front, .back {
     width: 100%;
     height: 100%;
-    background-color: var(--color-primary-dark);
+    background-color: rgba(31, 31, 31, 0.9); /* Fundo Semi-transparente */
     color: var(--color-text-dark);
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -109,64 +135,64 @@ p {
 }
 
 .question, .answer {
-    font-size: 1.2em;
-    padding: 0 10px;
+    font-size: 1.5em; /* Aumentado de 1.2em para 1.5em */
+    padding: 0 20px; /* Aumentado de 10px para 20px */
+    text-align: center;
 }
 
+/* Navegação entre Flashcards */
 .navigation {
     display: flex;
-    gap: 15px;
+    gap: 20px; /* Aumentado de 15px para 20px */
+    width: 100%; /* Preenche quase todo o site */
+    max-width: 600px; /* Define um máximo para evitar excesso em telas muito largas */
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
+.navigation button {
+    flex: 1; /* Os botões irão crescer igualmente para preencher o espaço disponível */
+    padding: 15px 0; /* Aumentado de 10px para 15px */
+    font-size: 1.2em; /* Aumentado de 1em para 1.2em */
     background-color: var(--color-accent-dark);
     border: none;
     border-radius: 5px;
     color: #FFFFFF;
     transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
 }
 
-button:hover {
+.navigation button:hover {
     background-color: var(--color-hover-dark);
     transform: scale(1.05);
 }
 
-#feedback {
-    margin-top: 10px;
-    font-weight: bold;
-    color: var(--color-feedback);
-}
-
+/* Contador de Flashcards */
 .counter {
     margin-top: 20px;
-    font-size: 1em;
+    font-size: 1.2em; /* Aumentado de 1em para 1.2em */
     color: var(--color-text-dark);
 }
 
 /* Rodapé */
 footer {
-    margin-top: 50px;
-    padding: 15px 20px;
-    background-color: var(--color-primary-dark);
+    padding: 20px;
+    background-color: rgba(31, 31, 31, 0.8); /* Fundo Semi-transparente */
     color: var(--color-text-dark);
-    position: relative;
+    text-align: center;
+    position: sticky;
     bottom: 0;
     width: 100%;
-    font-size: 0.9em;
+    font-size: 1em;
     transition: background-color 0.5s, color 0.5s;
 }
 
 /* Tema Secundário Claro */
 body.light-mode {
-    background-color: var(--color-background-light);
+    background: linear-gradient(to bottom right, var(--color-background-light), var(--color-primary-light));
     color: var(--color-text-light);
 }
 
 body.light-mode header {
-    background-color: var(--color-primary-light);
+    background-color: rgba(255, 215, 0, 0.8); /* Fundo Semi-transparente Dourado */
     border-bottom: 5px solid #CCCCCC;
 }
 
@@ -175,20 +201,18 @@ body.light-mode h1, body.light-mode p {
 }
 
 body.light-mode #theme-toggle {
+    border: 2px solid var(--color-accent-light);
     color: var(--color-text-light);
 }
 
 body.light-mode #theme-toggle:hover {
-    color: var(--color-accent-light);
+    background-color: var(--color-accent-light);
+    color: #000000;
 }
 
 body.light-mode .front, body.light-mode .back {
-    background-color: var(--color-primary-light);
+    background-color: rgba(255, 215, 0, 0.8); /* Fundo Semi-transparente Dourado */
     color: var(--color-text-light);
-}
-
-body.light-mode .back {
-    background-color: var(--color-primary-light);
 }
 
 body.light-mode .flashcard.flipped .front, 
@@ -196,36 +220,75 @@ body.light-mode .flashcard.flipped .back {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-body.light-mode button {
+body.light-mode .question, body.light-mode .answer {
+    color: var(--color-text-light);
+}
+
+body.light-mode .navigation button {
     background-color: var(--color-accent-light);
     color: #000000;
 }
 
-body.light-mode button:hover {
+body.light-mode .navigation button:hover {
     background-color: var(--color-hover-light);
 }
 
 body.light-mode footer {
-    background-color: var(--color-primary-light);
+    background-color: rgba(255, 215, 0, 0.8); /* Fundo Semi-transparente Dourado */
     color: var(--color-text-light);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .flashcard {
+        width: 80%;
+        height: 250px;
+    }
+
+    .navigation {
+        max-width: 90%;
+    }
+
+    .question, .answer {
+        font-size: 1.3em;
+        padding: 0 15px;
+    }
+
+    .navigation button {
+        font-size: 1em;
+        padding: 12px 0;
+    }
+
+    .counter {
+        font-size: 1em;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
 }
 
 @media (max-width: 500px) {
     .flashcard {
         width: 90%;
-        height: 180px;
+        height: 220px;
     }
 
     .question, .answer {
-        font-size: 1em;
+        font-size: 1.1em;
+        padding: 0 10px;
     }
 
-    button {
-        padding: 8px 16px;
+    .navigation button {
         font-size: 0.9em;
+        padding: 10px 0;
     }
 
     h1 {
         font-size: 2em;
     }
-}
+
+    footer {
+        font-size: 0.8em;
+    }
+    }
